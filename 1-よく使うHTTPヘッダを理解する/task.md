@@ -1,30 +1,30 @@
 ## 課題１
 
 ### HTTPヘッダー
-- Host
+- Host  
 Hostリクエストヘッダーはリクエストが送信される先のサーバーのホスト名およびポート番号を指定する。
 ポート番号が指定されなかった場合は、要求されたサービスの既定のポート（例えばHTTPSのURLであれば443、HTTPのURLであれば80）が指定される。
 
-- Content-type
+- Content-type  
 Content-Typeレスポンスヘッダーはクライアントに返されたコンテンツがどのような種類のものかを示す。
 Content-TypeリクエストヘッダーはクライアントからのリクエストにおいてはPOST または PUT などで、クライアントからサーバーにどのような種類のデータが実際に送られたかをサーバーに伝える。
 
-- User-agent
+- User-agent  
 User-agentリクエストヘッダーはクライアントのソフトエア情報(OSやブラウザなど)の文字列をサーバーに伝える。
 
-- Accept
+- Accept  
 Acceptリクエストヘッダーはクライアントが受け取ることができるデータの種類をサーバーに通知する。
 
-- Referer
+- Referer  
 Refererリクエストヘッダーは現在リクエストされているページのクリック元のURLを示す。
 
-- Accept-Encoding
+- Accept-Encoding  
 Accept-Encodingリクエストヘッダーは、クライアントが受け取ることのできるコンテンツのエンコーディング（ふつうは圧縮アルゴリズム）の形式を示す。
 
-- Authorization
+- Authorization  
 Authorization リクエストヘッダーは、ユーザーエージェントが認証するための認証情報を持つ。
 
-- Location
+- Location  
 Locationレスポンスヘッダーはリダイレクト時のリダイレクト先のURLを示す。 
 
 ### referer
