@@ -36,9 +36,7 @@ rel=noreferrerを設定することにより、リンク先のページにリン
 - "Referrer-Policy: origin-when-cross-origin"を追加する
 
 ## 課題2
-
-1.  
-2. 
-3. 
-
+1. http://example.com からのクロスドメイン通信を許可したい場合、HTTPレスポンスヘッダーにどのような値を追加したらよいでしょうか。
+2. PUTメソッドとPATCHメソッドの違いを簡単に説明してください。
+3. フォームでファイル送信する場合、form要素の属性にenctype="multipart/form-data"を設定する必要があるのはなぜでしょうか。
 
