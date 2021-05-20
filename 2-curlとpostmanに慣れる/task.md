@@ -5,7 +5,7 @@
 3. curl -X POST https://httpbin.org/post -H "Content-Type: application/json" -d '{"userA": {"name": "hoge", "age": 29}}'
 
 ## Potman
-
+task2-2_postmanディレクトリにPostmanのキャプチャがあります。
 
 ## クイズ
 
