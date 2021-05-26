@@ -38,5 +38,11 @@ rel=noreferrerを設定することにより、リンク先のページにリン
 ## 課題2
 1. http://example.com からのクロスドメイン通信を許可したい場合、HTTPレスポンスヘッダーにどのような値を追加したらよいでしょうか。
   * (コダマ回答) 
-3. PUTメソッドとPATCHメソッドの違いを簡単に説明してください。
-4. フォームでファイル送信する場合、form要素の属性にenctype="multipart/form-data"を設定する必要があるのはなぜでしょうか。
+  * `Access-Control-Allow-Origin: http://example.com/*` 
+2. PUTメソッドとPATCHメソッドの違いを簡単に説明してください。
+  * PUTは指定URLのリソースをまるごと置換する (SQLでいうDELETE+INSERT)
+  * PATCHは一部変更する (SQLでいうUPDATE)
+3. フォームでファイル送信する場合、form要素の属性にenctype="multipart/form-data"を設定する必要があるのはなぜでしょうか。
+  * サーバ側に添付ファイルと認識させるため
+  * バイナリを送ってファイルと認識させている？
+    * https://stackoverflow.com/questions/4526273/what-does-enctype-multipart-form-data-mean
