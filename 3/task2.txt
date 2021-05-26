@@ -1,0 +1,7 @@
+application/json
+ →　データをJSON形式で送信
+ 例　{"data1": "foo", "data2": "bar"}
+
+application/x-www-form-urlencoded
+ → データをURLのクエリパラメータのような形式で送る。データはURLエンコードされる
+ 例　data1=foo&data2=bar
