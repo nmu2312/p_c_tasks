@@ -47,7 +47,7 @@ None：制限なし。
 対策  
 ・Set-CookieヘッダにHttpOnly属性をつけ、docment.cookieからCookieを取得できないようにすることでXSSサイト攻撃を緩和できる。  
 ・Samesite=LaxまたはStrict設定し、別ドメインにcookieが送られないようにする（ajaxでリクエストを外部に送信するコードを埋め込まれた場合は依然としてcookieが漏洩するリスクがあるため（https://www.youtube.com/watch?v=4JREwhSC2dQ））  
-・そもそもクリプトが実行されないようにフォームに忘れずにエスケープ処理を施す。  
+・そもそもスクリプトが実行されないようにフォームに忘れずにエスケープ処理を施す。  
 
 参考サイト  
 https://developer.mozilla.org/ja/docs/Web/HTTP/Headers/Set-Cookie/SameSite  
