@@ -44,7 +44,6 @@ None：制限なし。
 攻撃者がクッキーを外部に送信するスクリプトを埋め込んだURLを貼る。  
 ↓  
 ユーザーがURLをクリックするとスクリプトが実行されて外部にCookieが送られる。  
-
 対策  
 ・Set-CookieヘッダにHttpOnly属性をつけ、docment.cookieからCookieを取得できないようにすることでXSSサイト攻撃を緩和できる。  
 ・Samesite=LaxまたはStrict設定し、別ドメインにcookieが送られないようにする（ajaxでリクエストを外部に送信するコードを埋め込まれた場合は依然としてcookieが漏洩するリスクがあるため（https://www.youtube.com/watch?v=4JREwhSC2dQ））  
