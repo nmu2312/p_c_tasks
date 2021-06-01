@@ -34,7 +34,7 @@
   5. リクエストにReadableStreamオブジェクトを使用していない
 
 - 4  
-  リクエストがブロックされるので、コンソールにエラーメッセージが出る。　　
+  リクエストがブロックされるので、コンソールにエラーメッセージが出る。  
   Chromeの場合"Access to fetch at 'http://example.com' from origin 'http://xxxxxxxx' has been blocked by CORS policy"というエラーメッセージがでる。
 
 - 5    
