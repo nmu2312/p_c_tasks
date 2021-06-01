@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button type="button" id="button1">Send a simple request</button><br>
+  <button type="button" id="button2">Send a non simple request</button>
+  <div id="msg"></div>
+  <script>
+    const url = 'http://localhost:8080';
+    const msgElem = document.getElementById('msg');
+
+    document.getElementById('button1').addEventListener('click', ()=> {
+      fetch(`${url}/simple`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: "name=foo",
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        msgElem.textContent = 'Simple request succeeded';
+      })
+      .catch(error => {
+        console.error(error);
+        msgElem.textContent = 'Simple request failed';
+      });
+    });
+
+    document.getElementById('button2').addEventListener('click', ()=> {
+      const data = {
+        name: 'bar'
+      };
+      fetch(`${url}/json`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data),
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        msgElem.textContent = 'Non simple request succeeded';
+      })
+      .catch(error => {
+        console.error(error);
+        msgElem.textContent = 'Non simple request failed';
+      });
+    });
+
+
+  </script>
+</body>
+</html>
