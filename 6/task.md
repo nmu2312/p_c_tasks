@@ -12,7 +12,8 @@
 - 2  
 第三者からのスクリプトによるリクエストによって、外部に公開してはいけない情報がAPI経由で漏洩するリスクがある。
 
-- シンプルなリクエストの条件
+### シンプルなリクエスト
+- 3  シンプルなリクエストの条件
   1.  メソッドはGET, POST, HEADのどれか
   2.  手動で設定しているヘッダは下記に書かれたものだけ  
     - Accept  
@@ -31,11 +32,11 @@
   4. XMLHttpRequestオブジェクトを使用する場合、XMLHttpRequest.uploadプロパティにイベントリスナーが登録されていない
   5. リクエストにReadableStreamオブジェクトを使用していない
 
-- 3  
+- 4  
   リクエストがブロックされるので、コンソールにエラーメッセージが出る。　　
   Chromeの場合"Access to fetch at 'http://example.com' from origin 'http://xxxxxxxx' has been blocked by CORS policy"というエラーメッセージがでる。
 
-- 4  
+- 5    
   XMLHttpRequestオブジェクトのwithCredentialsプロパティにtrueを設定する。　　
   <pre>　　
   const xhr = new XMLHttpRequest();　　
