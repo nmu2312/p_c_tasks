@@ -39,7 +39,7 @@
 
 - 5    
   XMLHttpRequestオブジェクトのwithCredentialsプロパティにtrueを設定する。　　
-  <pre>　　
+  <pre>
   const xhr = new XMLHttpRequest();　　
   xhr.withCredentials = true;　　
   </pre>　　
