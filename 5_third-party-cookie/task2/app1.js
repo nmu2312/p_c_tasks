@@ -6,7 +6,7 @@ app.use(
   express.static('public1', {
     setHeaders: (res, path, stat) => {
       res.cookie('name', 'app1', {
-        domain: '3181acf6921a.ngrok.io',
+        domain: '994725aa48e8.ngrok.io',
         httpOnly: true,
       });
     },
