@@ -55,8 +55,8 @@
   task3/README.mdにファイルの説明があります。
 
 ## 課題4
-curlコマンドでのリクエストにCORS制約は適用されない。  　
-CORSの対象になるのはブラウザーのスクリプトによって実行されるリクエスト（＝XMLHttpRequestやFetch APIによるリクエスト）であるため。  　
+curlコマンドでのリクエストにCORS制約は適用されない。  
+CORSの対象になるのはブラウザーのスクリプトによって実行されるリクエスト（＝XMLHttpRequestやFetch APIによるリクエスト）であるため。  
 参考：  
 auth0のサイトにあるCORS Tutorialという記事より。  
 "Note: The call using curl works just fine, as CORS only affects XMLHttpRequest calls in the browser."  
