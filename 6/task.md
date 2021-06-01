@@ -13,7 +13,8 @@
 第三者からのスクリプトによるリクエストによって、外部に公開してはいけない情報がAPI経由で漏洩するリスクがある。
 
 ### シンプルなリクエスト
-- 3  シンプルなリクエストの条件
+- 3  
+  シンプルなリクエストの条件
   1.  メソッドはGET, POST, HEADのどれか
   2.  手動で設定しているヘッダは下記に書かれたものだけ  
     - Accept  
@@ -45,7 +46,7 @@
 
 ## 課題2
   ### クイズ
-  1. 以下のリクエストは単純リクエストに該当するでしょうか。
+  1. 以下のリクエストは単純リクエストに該当するでしょうか。  
     - formに入力したデータをFormDataオブジェトでラップした上で、そのデータをJSの非同期通信ででPOSTする。
   2. XMLHttpRequestの代わりにFetch APIを使用してCookieを含めたリクエストを送信したい場合、どのようなオプションを追加する必要がありますか。また、Cookieの送信を同一オリジンに制限する場合はどのようなオプションにすればよいでしょうか。
   3. Access-Control-Request-Headersの役割はなんでしょうか。
@@ -54,9 +55,9 @@
   task3/README.mdにファイルの説明があります。
 
 ## 課題4
-curlコマンドでのリクエストにCORS制約は適用されない。 　
-CORSの対象になるのはブラウザーのスクリプトによって実行されるリクエスト（＝XMLHttpRequestやFetch APIによるリクエスト）であるため。　　
-参考：　　
-auth0のサイトにあるCORS Tutorialという記事より。
-"Note: The call using curl works just fine, as CORS only affects XMLHttpRequest calls in the browser."　　
-(https://auth0.com/blog/cors-tutorial-a-guide-to-cross-origin-resource-sharing/)
+curlコマンドでのリクエストにCORS制約は適用されない。  　
+CORSの対象になるのはブラウザーのスクリプトによって実行されるリクエスト（＝XMLHttpRequestやFetch APIによるリクエスト）であるため。  　
+参考：  
+auth0のサイトにあるCORS Tutorialという記事より。  
+"Note: The call using curl works just fine, as CORS only affects XMLHttpRequest calls in the browser."  
+(https://auth0.com/blog/cors-tutorial-a-guide-to-cross-origin-resource-sharing/)  
