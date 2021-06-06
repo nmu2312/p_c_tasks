@@ -54,6 +54,6 @@ task2フォルダにあります。
 - キャッシング  
   https://almanac.httparchive.org/ja/2019/caching
 - Public Cache vs Private Cache  
-  https://my.kualo.com/knowledgebase/109_litespeed-cache/1357_public-cache-vs.-private-cache.html
+  https://my.kualo.com/knowledgebase/109_litespeed-cache/1357_public-cache-vs.-private-cache.html  
 他
 
