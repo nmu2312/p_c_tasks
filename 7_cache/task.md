@@ -39,7 +39,7 @@ task2フォルダにあります。
 ## 課題４(クイズ)
   1. 以下の記述は正しいでしょうか。  
     Cache-Controlヘッダでmax-age=0が指定されていた場合コンテンツはキャッシュされない。
-  2. レスポンスコード200(memory cache)と304 Not Modifiedの違いは何でしょうか。
+  2. レスポンスコード200(from memory cache)と304 Not Modifiedの違いは何でしょうか。
   3. public cacheではなくprivate cacheを使った方がいい場合の例を挙げてください。
 
 ## 課題の参考にしたもの
