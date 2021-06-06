@@ -16,7 +16,7 @@
   - Cache-Control  
     HTTP1.1で新たに策定されたヘッダ。Expiresよりもキャッシュを細かく制御できる。ExpiresヘッダとCache-Controlヘッダが両方ある場合、Cache-Controlヘッダが優先される。IEはこのヘッダに対応していない。
   - Etag  
-    リソースのバージョンを示すヘッダ。クライアントはレスポンスから受け取ったEtagヘッダの値を、If-None-Matchヘッダに入れてリクエストを行い、サーバはリソースのETag値と送られてきたETag値の比較を行う。もしETag値が一致すれば、リソースは変わっていないということになるので、サーバは304 Not Modifiedという、リソース本体を含まないレスポンスを返す。一方、ETagが一致しなければ、If-None-Matchのないリクエストと同様、リソースを含んだレスポンスを返す。
+    リソースのバージョンを示すヘッダ。クライアントは再リクエストをする際に、以前にレスポンスから受け取ったEtagヘッダの値をIf-None-Matchヘッダに入れてリクエストを行い、サーバはリソースのETag値と送られてきたIf-None-Matchヘッダ内のETag値と比較する。もしETag値が一致すれば、リソースは変わっていないということになるので、サーバは304 Not Modifiedという、リソース本体を含まないレスポンスを返す。一方、ETagが一致しなければ、If-None-Matchのないリクエストと同様、リソースを含んだレスポンスを返す。
 
 - 現行のFirefoxにおいて、容量上限はユーザーのデバイスのストレージの空き容量で変動する。以前はデフォルトで256MBがリミットだった。
   上限に達した場合、古いデータからオリジン単位で削除される。
@@ -40,4 +40,16 @@ task2フォルダにあります。
   1. 以下の記述は正しいでしょうか。  
     Cache-Controlヘッダでmax-age=0が指定されていた場合コンテンツはキャッシュされない。
   2. レスポンスコード200(memory cache)と304 Not Modifiedの違いは何でしょうか。
+  3. public cacheではなくprivate cacheを使った方がいい場合の例を挙げてください。
+
+## 課題の参考にしたもの
+- MDN HTTP Cache
+  https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching
+- Herokuドキュメント　　
+  https://devcenter.heroku.com/ja/articles/increasing-application-performance-with-http-cache-headers
+- https://www.c-sharpcorner.com/article/how-to-change-http-browser-cache-size/  
+- https://almanac.httparchive.org/ja/2019/caching#cache-control-no-store-no-cache-and-max-age0
+- Public Cache vs Private Cache
+  https://my.kualo.com/knowledgebase/109_litespeed-cache/1357_public-cache-vs.-private-cache.html
+他
 
