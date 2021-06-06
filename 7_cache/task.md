@@ -43,13 +43,17 @@ task2フォルダにあります。
   3. public cacheではなくprivate cacheを使った方がいい場合の例を挙げてください。
 
 ## 課題の参考にしたもの
-- MDN HTTP Cache
+- MDN HTTP Cache  
   https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching
-- Herokuドキュメント　　
+- Caching Tutorial for Web Authors and Webmasters  
+  https://www.mnot.net/cache_docs/  
+- Heroku HTTP キャッシュヘッダーを使用したアプリケーションパフォーマンスの向上
   https://devcenter.heroku.com/ja/articles/increasing-application-performance-with-http-cache-headers
-- https://www.c-sharpcorner.com/article/how-to-change-http-browser-cache-size/  
-- https://almanac.httparchive.org/ja/2019/caching#cache-control-no-store-no-cache-and-max-age0
-- Public Cache vs Private Cache
+- How To Change HTTP Browser Cache Size
+  https://www.c-sharpcorner.com/article/how-to-change-http-browser-cache-size/  
+- キャッシング  
+  https://almanac.httparchive.org/ja/2019/caching
+- Public Cache vs Private Cache  
   https://my.kualo.com/knowledgebase/109_litespeed-cache/1357_public-cache-vs.-private-cache.html
 他
 
