@@ -49,7 +49,7 @@ task2フォルダにあります。
   https://www.mnot.net/cache_docs/  
 - Heroku HTTP キャッシュヘッダーを使用したアプリケーションパフォーマンスの向上
   https://devcenter.heroku.com/ja/articles/increasing-application-performance-with-http-cache-headers
-- How To Change HTTP Browser Cache Size
+- How To Change HTTP Browser Cache Size  
   https://www.c-sharpcorner.com/article/how-to-change-http-browser-cache-size/  
 - キャッシング  
   https://almanac.httparchive.org/ja/2019/caching
