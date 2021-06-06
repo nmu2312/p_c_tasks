@@ -43,11 +43,11 @@ task2フォルダにあります。
   3. public cacheではなくprivate cacheを使った方がいい場合の例を挙げてください。
 
 ## 課題の参考にしたもの
-- MDN HTTP Cache  
+- MDN - HTTP Cache  
   https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching
 - Caching Tutorial for Web Authors and Webmasters  
   https://www.mnot.net/cache_docs/  
-- Heroku HTTP キャッシュヘッダーを使用したアプリケーションパフォーマンスの向上
+- Heroku - HTTP キャッシュヘッダーを使用したアプリケーションパフォーマンスの向上
   https://devcenter.heroku.com/ja/articles/increasing-application-performance-with-http-cache-headers
 - How To Change HTTP Browser Cache Size  
   https://www.c-sharpcorner.com/article/how-to-change-http-browser-cache-size/  
