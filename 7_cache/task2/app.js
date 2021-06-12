@@ -6,14 +6,14 @@ const port = 8080;
 app.use(
   express.static('public', {
     setHeaders: (res, path, stat) => {
-      res.set('Cache-Control', 'private, max-age=300');
+      res.set('Cache-Control', 'private, max-age=0');
     },
   })
 );
 
 //画像のみを返すエンドポイント
 app.get('/cache', (req, res) => {
-  res.set('Cache-control', 'private, max-age=300');
+  res.set('Cache-control', 'private, max-age=50000');
   // res.set('Expires', new Date(Date.now() + 2592000000).toUTCString());
   res.sendFile(`${__dirname}/pyoko_computer.png`);
   // res.sendFile(`${__dirname}/pyoko_computer.png`, {
