@@ -26,7 +26,7 @@ test('foo', () => {
   expect(new IceCream('vanilla')).toStrictEqual({flavor: 'vanilla'});
 });
 </pre>
-3. 以下のサンプルコードのようにTypeScriptでmyFunctionsという関数のモック関数を作成すると、型名は何になるでしょうか。  
+3. 以下のサンプルコードのようにTypeScriptでmyFunctionという関数のモック関数を作成すると、型名は何になるでしょうか。  
   ※＊＊＊に型名が入ります。
 <pre>
 import { myFunction } from "./library";
