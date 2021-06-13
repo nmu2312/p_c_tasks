@@ -9,8 +9,9 @@ task2ディレクトリにあります。
 - 依存性の注入を行うことによって、モジュール同士の結合度の強さは弱くなる（疎結合になる）
 
 ## 課題4(クイズ)
-- 関数のテストを書くクイズ => task4_quizフォルダにあります。  
-  __tests__/example_functions.test.jsは僕が確認のために自分で書いたテストです。
+## 関数のテストを書くクイズ
+- task4_quizフォルダにあります。  
+- __tests__/example_functions.test.jsは僕が確認のために自分で書いたテストです。
 
 ### jestに関するクイズ
 1. 特定のテストをスキップしたいときに使うメソッドは何でしょうか。
@@ -22,11 +23,10 @@ class IceCream {
   }
 }
 test('foo', () => {
-  expect(new IceCream('vanilla')).toEqual({flavor: 'vanilla'});
+  expect(new IceCream('vanilla')).toStrictEqual({flavor: 'vanilla'});
 });
 </pre>
-3. TypeScriptでmyFunctionsという関数のモック関数を作成すると、型名は何になるでしょうか。　　　
-  - 以下サンプルコード：＊＊＊に型名が入ります。
+3. 以下のサンプルコードのようにTypeScriptでmyFunctionsという関数のモック関数を作成すると、型名は何になるでしょうか。※＊＊＊に型名が入ります。
 <pre>
 import { myFunction } from "./library";
 jest.mock("./library");
