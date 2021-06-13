@@ -37,5 +37,5 @@ const mockMyFunction = myFunction as ＊＊＊;
 ## 参考
 - @types/jestの型定義  
   https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/jest/index.d.ts
-- fetchメソッドのMock
+- fetchメソッドのMock  
   https://jestjs.io/ja/docs/next/bypassing-module-mocks
