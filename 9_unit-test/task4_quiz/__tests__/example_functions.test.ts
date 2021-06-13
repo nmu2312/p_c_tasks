@@ -62,7 +62,7 @@ describe('isPalindrome()', () => {
 });
 
 describe('generateAddressFromZipcode()', () => {
-  const fetchedMockData = {
+  const mockFetchedData = {
     message: null,
     results: [
       {
@@ -80,9 +80,9 @@ describe('generateAddressFromZipcode()', () => {
   };
 
   const addressToReturn =
-    fetchedMockData.results[0].address1 +
-    fetchedMockData.results[0].address2 +
-    fetchedMockData.results[0].address3;
+    mockFetchedData.results[0].address1 +
+    mockFetchedData.results[0].address2 +
+    mockFetchedData.results[0].address3;
 
   afterEach(() => {
     (fetch as jest.MockedFunction<typeof fetch>).mockClear();
@@ -90,7 +90,7 @@ describe('generateAddressFromZipcode()', () => {
 
   test('works with a zipcode without "-"', async () => {
     (fetch as jest.MockedFunction<typeof fetch>).mockReturnValue(
-      Promise.resolve(new Response(JSON.stringify(fetchedMockData)))
+      Promise.resolve(new Response(JSON.stringify(mockFetchedData)))
     );
     expect(await generateAddressFromZipcode('0790177')).toBe(addressToReturn);
     expect(fetch).toHaveBeenCalledTimes(1);
@@ -98,24 +98,24 @@ describe('generateAddressFromZipcode()', () => {
 
   test('works with a zipcode with "-"', async () => {
     (fetch as jest.MockedFunction<typeof fetch>).mockReturnValue(
-      Promise.resolve(new Response(JSON.stringify(fetchedMockData)))
+      Promise.resolve(new Response(JSON.stringify(mockFetchedData)))
     );
     expect(await generateAddressFromZipcode('079-0177')).toBe(addressToReturn);
     expect(fetch).toHaveBeenCalledTimes(1);
   });
 
   test('throws an error if the url is given an invalid parameter', () => {
-    const lameFetchedMockData = {
+    const mockLameFetchedData = {
       message: 'パラメータ「郵便番号」の桁数が不正です。',
       results: null,
       status: 400,
     };
     (fetch as jest.MockedFunction<typeof fetch>).mockReturnValue(
-      Promise.resolve(new Response(JSON.stringify(lameFetchedMockData)))
+      Promise.resolve(new Response(JSON.stringify(mockLameFetchedData)))
     );
     expect(
       async () => await generateAddressFromZipcode('123456678')
-    ).rejects.toThrow(lameFetchedMockData.message);
+    ).rejects.toThrow(mockLameFetchedData.message);
     expect(fetch).toHaveBeenCalledTimes(1);
   });
 });
