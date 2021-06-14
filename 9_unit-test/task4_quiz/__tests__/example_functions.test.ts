@@ -25,7 +25,7 @@ describe('extractOddNumbers()', () => {
 });
 
 describe('isPalindrome()', () => {
-  test('works with a Hiragana sentence', async () => {
+  test('works with a Hiragana sentence', () => {
     expect(isPalindrome('よわいわよ、はんしんはよわいわよ。')).toBe(true);
     expect(isPalindrome('よわいわよーはんしんはよわいわよ。')).toBe(false);
     expect(isPalindrome('るーる')).toBe(true);
@@ -36,7 +36,7 @@ describe('isPalindrome()', () => {
     expect(isPalindrome('わがはいは、ねこである')).toBe(false);
   });
 
-  test('works with an English sentence', async () => {
+  test('works with an English sentence', () => {
     expect(isPalindrome('I am the walrus.')).toBe(false);
     expect(isPalindrome('Was it a car or a cat I saw?')).toBe(true);
     expect(isPalindrome('Was it a car or a cat I just saw?')).toBe(false);
