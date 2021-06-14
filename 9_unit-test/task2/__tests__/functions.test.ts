@@ -42,7 +42,7 @@ describe('asyncSumOfArray()', () => {
 });
 
 describe('asyncSumOfArraySometimesZero()', () => {
-  beforeEach(() => {
+  afterEach(() => {
     MockedDatabaseMock.mockClear();
   });
 
