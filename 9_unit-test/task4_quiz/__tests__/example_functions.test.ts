@@ -51,12 +51,12 @@ describe('isPalindrome()', () => {
   });
 
   test('throws an error if the sentence includes unpermitted letters such as katakana or kanji', () => {
-    const errrorMessage =
+    const errorMessage =
       '許可されていない文字が含まれています。日本語の場合はカタカナ、漢字は使用しないでください。';
 
-    expect(() => isPalindrome('トマト')).toThrow(errrorMessage);
+    expect(() => isPalindrome('トマト')).toThrow(errorMessage);
     expect(() => isPalindrome('弱いわよ、阪神は弱いわよ')).toThrow(
-      errrorMessage
+      errorMessage
     );
   });
 });
