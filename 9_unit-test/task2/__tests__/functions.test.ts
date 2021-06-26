@@ -23,7 +23,6 @@ describe('sumOfArray()', () => {
 
   /** Modified for task 3 */
   // test('throws an error if its argument is an empty array', () => {
-  //   expect.assertions(1);
   //   expect(() => sumOfArray([])).toThrow();
   // });
   test('returns 0 if its argument is an empty array', () => {
