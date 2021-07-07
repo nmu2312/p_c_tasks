@@ -1,0 +1,9 @@
+import React from 'react';
+import renderer from 'react-test-renderer';
+import Square from '../components/Square';
+import 'jest-styled-components';
+
+test('it works', () => {
+  const tree = renderer.create(<Square />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
