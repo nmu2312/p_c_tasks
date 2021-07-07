@@ -11,7 +11,7 @@ jest.mock('../nameApiService');
 const MockedDatabaseMock = DatabaseMock as jest.MockedClass<
   typeof DatabaseMock
 >;
-const MockedNameApiServie = NameApiService as jest.Mock;
+const MockedNameApiService = NameApiService as jest.Mock;
 
 describe('sumOfArray()', () => {
   test('sums up numbers in the array in the argument', () => {
@@ -78,7 +78,7 @@ describe('asyncSumOfArraySometimesZero()', () => {
 
 describe('getFirstNameThrowIfLong()', () => {
   beforeAll(() => {
-    MockedNameApiServie.mockImplementation(() => {
+    MockedNameApiService.mockImplementation(() => {
       return {
         getFirstName: () => {
           return 'Jack';
@@ -88,20 +88,20 @@ describe('getFirstNameThrowIfLong()', () => {
   });
 
   test("returns a string when the string's length is less than or equal to the number in the first argument", async () => {
-    expect(await getFirstNameThrowIfLong(4, new MockedNameApiServie())).toBe(
+    expect(await getFirstNameThrowIfLong(4, new MockedNameApiService())).toBe(
       'Jack'
     );
-    expect(await getFirstNameThrowIfLong(80, new MockedNameApiServie())).toBe(
+    expect(await getFirstNameThrowIfLong(80, new MockedNameApiService())).toBe(
       'Jack'
     );
   });
 
   test("throws an error when the fetched string's length exceeds the number in the first argument", () => {
     expect(
-      async () => await getFirstNameThrowIfLong(1, new MockedNameApiServie())
+      async () => await getFirstNameThrowIfLong(1, new MockedNameApiService())
     ).rejects.toThrow('first_name too long');
     expect(
-      async () => await getFirstNameThrowIfLong(3, new MockedNameApiServie())
+      async () => await getFirstNameThrowIfLong(3, new MockedNameApiService())
     ).rejects.toThrow('first_name too long');
   });
 });
