@@ -23,9 +23,15 @@ describe('sumOfArray()', () => {
     }
   );
 
-  test('[異常系]第一引数の配列内の数字を合計して返す(小数) %j => %d', () => {
-    expect(sumOfArray([0.1, 0.4])).toBeCloseTo(0.5);
-  });
+  test.each([
+    [[0.1, 0.4], 0.5],
+    [[1, 0.05, -1.08], -0.03],
+  ])(
+    '[正常系]第一引数の配列内の数字(小数含む)を合計して返す. %j => %d',
+    (numbers, expected) => {
+      expect(sumOfArray(numbers)).toBeCloseTo(expected);
+    }
+  );
 
   /** Modified for task 3 */
   // test('throws an error if its argument is an empty array', () => {
