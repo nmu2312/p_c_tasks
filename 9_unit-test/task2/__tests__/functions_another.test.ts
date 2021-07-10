@@ -5,18 +5,25 @@ import {
   getFirstNameThrowIfLong,
 } from '../functions';
 import { DatabaseMock } from '../util/index';
-// import { NameApiService } from '../nameApiService';
+import { NameApiService } from '../nameApiService';
 import { mocked } from 'ts-jest/utils';
+import { MockedObjectDeep } from 'ts-jest/dist/utils/testing';
 jest.mock('../util/index');
-// jest.mock('../nameApiService');
-// const MockedDatabaseMock = mocked(DatabaseMock, true);
-const MockedNameApiService = jest.fn(); //Private method のタイプエラーが発生するためマニュアルモック
+jest.mock('../nameApiService');
 
 describe('sumOfArray()', () => {
-  test('sums up numbers in the array in the argument', () => {
-    expect(sumOfArray([1, 1])).toBe(2);
-    expect(sumOfArray([1, 2, 3])).toBe(6);
-    expect(sumOfArray([1, -2, 3, -3])).toBe(-1);
+  test.each([
+    [[1, 1], 2],
+    [[1, 2, 3], 6],
+    [[1, -2, 3, -3], -1],
+  ])(
+    '[正常系]第一引数の配列内の数字を合計して返す. %j => %d',
+    (numbers, expected) => {
+      expect(sumOfArray(numbers)).toBe(expected);
+    }
+  );
+
+  test('[異常系]第一引数の配列内の数字を合計して返す(小数) %j => %d', () => {
     expect(sumOfArray([0.1, 0.4])).toBeCloseTo(0.5);
   });
 
@@ -24,17 +31,17 @@ describe('sumOfArray()', () => {
   // test('throws an error if its argument is an empty array', () => {
   //   expect(() => sumOfArray([])).toThrow();
   // });
-  test('returns 0 if its argument is an empty array', () => {
+  test('[異常系]第一引数が空の配列の場合はゼロを返す', () => {
     expect(sumOfArray([])).toBe(0);
   });
 });
 
 describe('asyncSumOfArray()', () => {
-  test('sums numbers in the array given as the first argument', async () => {
+  test('[正常系]第一引数の配列内の数字を合計して返す', async () => {
     expect(await asyncSumOfArray([1, 2, 3])).toBe(6);
     expect(await asyncSumOfArray([1, 2, 3, 4])).toBe(10);
   });
-  test('returns 0 if its argument is an empty array', async () => {
+  test('[異常系]第一引数が空の配列の場合はゼロを返す', async () => {
     expect(await asyncSumOfArray([])).toBe(0);
   });
 });
@@ -44,62 +51,59 @@ describe('asyncSumOfArraySometimesZero()', () => {
     mocked(DatabaseMock).mockClear();
   });
 
-  test('returns 0 if its argument is an empty array', async () => {
-    expect(await asyncSumOfArraySometimesZero([], new DatabaseMock())).toBe(0);
+  test('[異常系]第一引数が空の配列の場合はゼロを返す', async () => {
+    const mockedDatabaseMock: MockedObjectDeep<DatabaseMock> = mocked(
+      new DatabaseMock(),
+      true
+    );
+    mockedDatabaseMock.save.mockImplementation(() => {});
+    expect(await asyncSumOfArraySometimesZero([], mockedDatabaseMock)).toBe(0);
   });
 
-  test('returns zero if Databse.save method throws an error', async () => {
-    mocked(DatabaseMock).mockImplementation(() => {
-      return {
-        save: () => {
-          throw new Error('fail!');
-        },
-      };
+  test('[異常系]Database.saveメソッドが失敗した場合にゼロを返す', async () => {
+    const mockedDatabaseMock = mocked(new DatabaseMock(), true);
+    mockedDatabaseMock.save.mockImplementation(() => {
+      throw new Error('fail!');
     });
+
     expect(
-      await asyncSumOfArraySometimesZero([1, 2, 3], new DatabaseMock())
+      await asyncSumOfArraySometimesZero([1, 2, 3], mockedDatabaseMock)
     ).toBe(0);
   });
 
-  test('sums up numbers if Database.save method succeeds', async () => {
-    mocked(DatabaseMock).mockImplementation(() => {
-      return {
-        save: () => {},
-      };
-    });
+  test('[正常系]Database.save成功した場合、第一引数の配列の数字を合計した値を返す', async () => {
+    const mockedDatabaseMock = mocked(new DatabaseMock(), true);
+    mockedDatabaseMock.save.mockImplementation(() => {});
     expect(
-      await asyncSumOfArraySometimesZero([1, 2, 3], new DatabaseMock())
+      await asyncSumOfArraySometimesZero([1, 2, 3], mockedDatabaseMock)
     ).toBe(6);
   });
 });
 
 describe('getFirstNameThrowIfLong()', () => {
+  let mockedNameApiService: MockedObjectDeep<NameApiService>;
+  // let nameApiService: NameApiService;
   beforeAll(() => {
-    // const MockedNameApiService = mocked(NameApiService, false);
-    MockedNameApiService.mockImplementation(() => {
-      return {
-        getFirstName: () => {
-          return 'Jack';
-        },
-      };
-    });
+    mockedNameApiService = mocked(new NameApiService(), true);
+    mockedNameApiService.getFirstName.mockResolvedValue('Jack');
+
+    // nameApiService = new NameApiService();
+    // mocked(nameApiService.getFirstName, true).mockResolvedValue('Jack');
   });
 
-  test("returns a string when the string's length is less than or equal to the number in the first argument", async () => {
-    expect(await getFirstNameThrowIfLong(4, new MockedNameApiService())).toBe(
-      'Jack'
-    );
-    expect(await getFirstNameThrowIfLong(80, new MockedNameApiService())).toBe(
+  test('[正常系]APIから取得した文字列の長さ<=第一引数の数値 の場合にAPIから取得した文字列を返す', async () => {
+    expect(await getFirstNameThrowIfLong(4, mockedNameApiService)).toBe('Jack');
+    expect(await getFirstNameThrowIfLong(80, mockedNameApiService)).toBe(
       'Jack'
     );
   });
 
-  test("throws an error when the fetched string's length exceeds the number in the first argument", () => {
+  test('[異常系]APIから取得した文字列の長さ>第一引数の数値 の場合にエラーを投げる', () => {
     expect(
-      async () => await getFirstNameThrowIfLong(1, new MockedNameApiService())
+      async () => await getFirstNameThrowIfLong(1, mockedNameApiService)
     ).rejects.toThrow('first_name too long');
     expect(
-      async () => await getFirstNameThrowIfLong(3, new MockedNameApiService())
+      async () => await getFirstNameThrowIfLong(3, mockedNameApiService)
     ).rejects.toThrow('first_name too long');
   });
 });

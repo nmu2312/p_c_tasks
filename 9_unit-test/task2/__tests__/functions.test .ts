@@ -46,6 +46,11 @@ describe('asyncSumOfArraySometimesZero()', () => {
   });
 
   test('returns 0 if its argument is an empty array', async () => {
+    MockedDatabaseMock.mockImplementation(() => {
+      return {
+        save: () => {},
+      };
+    });
     expect(
       await asyncSumOfArraySometimesZero([], new MockedDatabaseMock())
     ).toBe(0);
@@ -81,7 +86,7 @@ describe('getFirstNameThrowIfLong()', () => {
     MockedNameApiService.mockImplementation(() => {
       return {
         getFirstName: () => {
-          return 'Jack';
+          return Promise.resolve('Jack');
         },
       };
     });
