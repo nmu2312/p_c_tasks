@@ -53,21 +53,21 @@ describe('asyncSumOfArray()', () => {
 });
 
 describe('asyncSumOfArraySometimesZero()', () => {
+  let mockedDatabaseMock: MockedObjectDeep<DatabaseMock>;
+
+  beforeAll(() => {
+    mockedDatabaseMock = mocked(new DatabaseMock(), true);
+  });
+
   afterEach(() => {
     mocked(DatabaseMock).mockClear();
   });
 
   test('[異常系]一引数が空の配列の場合はゼロを返す', async () => {
-    const mockedDatabaseMock: MockedObjectDeep<DatabaseMock> = mocked(
-      new DatabaseMock(),
-      true
-    );
-    mockedDatabaseMock.save.mockImplementation(() => {});
     expect(await asyncSumOfArraySometimesZero([], mockedDatabaseMock)).toBe(0);
   });
 
   test('[異常系]Database.saveメソッドが失敗した場合にゼロを返す', async () => {
-    const mockedDatabaseMock = mocked(new DatabaseMock(), true);
     mockedDatabaseMock.save.mockImplementation(() => {
       throw new Error('fail!');
     });
@@ -78,19 +78,18 @@ describe('asyncSumOfArraySometimesZero()', () => {
   });
 
   test('[正常系]Database.save成功した場合、第一引数の配列の数字を合計した値を返す', async () => {
-    const mockedDatabaseMock = mocked(new DatabaseMock(), true);
-    mockedDatabaseMock.save.mockImplementation(() => {});
     expect(
       await asyncSumOfArraySometimesZero([1, 2, 3], mockedDatabaseMock)
     ).toBe(6);
   });
 });
 
-describe('getFirstNameThrowIfLong()　パターン１：コンストラクタ(ES&クラス)のメソッドにモックを実装する', () => {
+describe('getFirstNameThrowIfLong()　パターン１：モックコンストラクタ(ES&クラス)に対してモックメソッドの実装を定義する', () => {
   let mockedNameApiService: NameApiService;
+
   beforeAll(() => {
     /** OK CODE
-     *  jest.spyOnを使ってコンストラクタ(ES6クラス)の指定したメソッドにモックを実装
+     * jest.spyOnを使ってモックコンストラクタ(ES6クラス)の指定したメソッドの実装を定義
      * 例
      * https://jestjs.io/ja/docs/jest-object#jestspyonobject-methodname
      * https://qiita.com/yuma-ito-bd/items/38c929eb5cccf7ce501e#%E3%82%AF%E3%83%A9%E3%82%B9%E3%81%AE%E4%B8%80%E9%83%A8%E3%81%A0%E3%81%91%E3%83%A2%E3%83%83%E3%82%AF%E3%81%AB%E3%81%97%E3%81%9F%E3%81%84
@@ -101,7 +100,7 @@ describe('getFirstNameThrowIfLong()　パターン１：コンストラクタ(ES
     mockedNameApiService = new NameApiService();
 
     /** NG CODE
-     * オブジェクト形式でコンストラクタのメソッドのモックを定義する方法
+     * オブジェクト形式でモックコンストラクタのメソッドの実装を定義する方法
      * オブジェクトの構成をコンストラクタのメンバと一致させる必要があるため、コンストラクタにprivateのメンバがある場合は型エラーを回避することができない。
      * 例
      * https://jestjs.io/ja/docs/es6-class-mocks#mockimplementation-%E3%81%BE%E3%81%9F%E3%81%AF-mockimplementationonce-%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%9F%E3%83%A2%E3%83%83%E3%82%AF%E3%82%92%E7%BD%AE%E3%81%8D%E6%8F%9B%E3%81%88%E3%82%8B
@@ -135,8 +134,9 @@ describe('getFirstNameThrowIfLong()　パターン１：コンストラクタ(ES
   });
 });
 
-describe('getFirstNameThrowIfLong()　パターン２：インスタンスのメソッドにモックを実装する', () => {
+describe('getFirstNameThrowIfLong()　パターン２：モックコンストラクタ(ES6クラス)をインスタンスした後、インスタンスに対してモックメソッドの実装を定義する', () => {
   let mockedNameApiService: MockedObjectDeep<NameApiService>;
+
   beforeAll(() => {
     /** OK CODE */
     mockedNameApiService = mocked(new NameApiService(), true);
