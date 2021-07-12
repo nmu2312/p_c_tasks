@@ -91,8 +91,7 @@ describe('getFirstNameThrowIfLong()', () => {
   beforeAll(() => {
     mockedNameApiService = mocked(new NameApiService(), true);
 
-    /** NG CODE1 Jestのドキュメント通りの方法
-     * プライベートメンバを含むコンストラクタ(ES6クラス)をモックする
+    /** NG CODE1 コンストラクタ(ES6クラス)をモックする(Jestのドキュメントに載っている方法)
      * privateのメンバがある場合は型エラーが発生するのでこの方法が使えない
      */
     // mocked(NameApiService).mockImplementation(() => {
