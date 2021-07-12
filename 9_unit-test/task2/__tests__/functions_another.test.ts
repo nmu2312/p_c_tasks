@@ -86,13 +86,53 @@ describe('asyncSumOfArraySometimesZero()', () => {
   });
 });
 
-describe('getFirstNameThrowIfLong()', () => {
+describe('getFirstNameThrowIfLong()　パターン１：コンストラクタ(ES&クラス)のインスタンスメソッドをモックする', () => {
   let mockedNameApiService: MockedObjectDeep<NameApiService>;
   beforeAll(() => {
-    mockedNameApiService = mocked(new NameApiService(), true);
+    /** NG CODE2 インスタンスそのものにmockImplementationはできない  */
+    // mockedNameApiService = mocked(new NameApiService(), true);
+    // mocked(mockedNameApiService, true).mockImplementation(() => {
+    //   return {
+    //     getFirstName: () => {
+    //       return Promise.resolve('Jack');
+    //     },
+    //   };
+    // });
 
-    /** NG CODE1 コンストラクタ(ES6クラス)をモックする(Jestのドキュメントにはこの方法の例しか載っていない)
-     * privateのメンバがある場合は型エラーが発生するのでこの方法が使えない
+    /** OK CODE1 インスタンスメソッドにmockImplementationをする */
+    // mockedNameApiService = mocked(new NameApiService(), true);
+    // mocked(mockedNameApiService, true).getFirstName.mockImplementation(() =>
+    //   Promise.resolve('Jack')
+    // );
+
+    /** OK CODE2 上のコードと同じ */
+    mockedNameApiService = mocked(new NameApiService(), true);
+    mockedNameApiService.getFirstName.mockResolvedValue('Jack');
+  });
+
+  test('[正常系]APIから取得した文字列の長さ<=第一引数の数値 の場合にAPIから取得した文字列を返す', async () => {
+    expect(await getFirstNameThrowIfLong(4, mockedNameApiService)).toBe('Jack');
+    expect(await getFirstNameThrowIfLong(80, mockedNameApiService)).toBe(
+      'Jack'
+    );
+  });
+
+  test('[異常系]APIから取得した文字列の長さ>第一引数の数値 の場合にエラーを投げる', () => {
+    expect(
+      async () => await getFirstNameThrowIfLong(1, mockedNameApiService)
+    ).rejects.toThrow('first_name too long');
+    expect(
+      async () => await getFirstNameThrowIfLong(3, mockedNameApiService)
+    ).rejects.toThrow('first_name too long');
+  });
+});
+
+describe('getFirstNameThrowIfLong()　パターン２：コンストラクタ(ES&クラス)のメソッドをモックする', () => {
+  let mockedNameApiService: NameApiService;
+  beforeAll(() => {
+    /** NG CODE
+     * returnするオブジェクトの構成をコンストラクタのメンバと一致させる必要があるため、
+     * privateのメンバがある場合は型エラーを回避できない。
      */
     // mocked(NameApiService).mockImplementation(() => {
     //   return {
@@ -103,21 +143,13 @@ describe('getFirstNameThrowIfLong()', () => {
     // });
     // mockedNameApiServce = new NameApiService();
 
-    /** NG CODE2 インスタンスにmockImplementationはできない  */
-    // mocked(mockedNameApiService), true).mockImplementation(() => {
-    //   return {
-    //     getFirstName: () => {
-    //       return Promise.resolve('Jack');
-    //     },
-    //   };
-    // });
-
-    /** OK CODE1 インスタンスのメソッドにmockImplementationをする */
-    // mocked(mockedNameApiService, true).getFirstName.mockImplementation(() =>
-    //   Promise.resolve('Jack')
-    // );
-    /** OK CODE2 上のコードと同じ */
-    mockedNameApiService.getFirstName.mockResolvedValue('Jack');
+    /** OK CODE
+     *  jest.spyOnを使ってコンストラクタ(ES6クラス)の指定したメソッドをモック
+     * */
+    jest
+      .spyOn(NameApiService.prototype, 'getFirstName')
+      .mockResolvedValue('Jack');
+    mockedNameApiService = new NameApiService();
   });
 
   test('[正常系]APIから取得した文字列の長さ<=第一引数の数値 の場合にAPIから取得した文字列を返す', async () => {
