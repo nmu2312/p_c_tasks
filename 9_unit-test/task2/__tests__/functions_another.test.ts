@@ -57,7 +57,7 @@ describe('asyncSumOfArraySometimesZero()', () => {
     mocked(DatabaseMock).mockClear();
   });
 
-  test('[異常系]第一引数が空の配列の場合はゼロを返す', async () => {
+  test('[異常系]一引数が空の配列の場合はゼロを返す', async () => {
     const mockedDatabaseMock: MockedObjectDeep<DatabaseMock> = mocked(
       new DatabaseMock(),
       true
@@ -88,13 +88,37 @@ describe('asyncSumOfArraySometimesZero()', () => {
 
 describe('getFirstNameThrowIfLong()', () => {
   let mockedNameApiService: MockedObjectDeep<NameApiService>;
-  // let nameApiService: NameApiService;
   beforeAll(() => {
     mockedNameApiService = mocked(new NameApiService(), true);
-    mockedNameApiService.getFirstName.mockResolvedValue('Jack');
 
-    // nameApiService = new NameApiService();
-    // mocked(nameApiService.getFirstName, true).mockResolvedValue('Jack');
+    /** NG CODE1 Jestのドキュメント通りの方法
+     * プライベートメンバを含むコンストラクタ(ES6クラス)をモックする
+     * privateのメンバがある場合は型エラーが発生するのでこの方法が使えない
+     */
+    // mocked(NameApiService).mockImplementation(() => {
+    //   return {
+    //     getFirstName: () => {
+    //       return Promise.resolve('Jack');
+    //     },
+    //   };
+    // });
+    // mockedNameApiServce = new NameApiService();
+
+    /** NG CODE2 インスタンスにmockImplementationはできない  */
+    // mocked(mockedNameApiService), true).mockImplementation(() => {
+    //   return {
+    //     getFirstName: () => {
+    //       return Promise.resolve('Jack');
+    //     },
+    //   };
+    // });
+
+    /** OK CODE1 インスタンスのメソッドにmockImplementationをする */
+    // mocked(mockedNameApiService, true).getFirstName.mockImplementation(() =>
+    //   Promise.resolve('Jack')
+    // );
+    /** OK CODE2 上のコードと同じ */
+    mockedNameApiService.getFirstName.mockResolvedValue('Jack');
   });
 
   test('[正常系]APIから取得した文字列の長さ<=第一引数の数値 の場合にAPIから取得した文字列を返す', async () => {
