@@ -86,28 +86,36 @@ describe('asyncSumOfArraySometimesZero()', () => {
   });
 });
 
-describe('getFirstNameThrowIfLong()　パターン１：コンストラクタ(ES&クラス)のインスタンスメソッドをモックする', () => {
-  let mockedNameApiService: MockedObjectDeep<NameApiService>;
+describe('getFirstNameThrowIfLong()　パターン１：コンストラクタ(ES&クラス)のメソッドにモックを実装する', () => {
+  let mockedNameApiService: NameApiService;
   beforeAll(() => {
-    /** NG CODE2 インスタンスそのものにmockImplementationはできない  */
-    // mockedNameApiService = mocked(new NameApiService(), true);
-    // mocked(mockedNameApiService, true).mockImplementation(() => {
+    /** OK CODE
+     *  jest.spyOnを使ってコンストラクタ(ES6クラス)の指定したメソッドにモックを実装
+     * 例
+     * https://jestjs.io/ja/docs/jest-object#jestspyonobject-methodname
+     * https://qiita.com/yuma-ito-bd/items/38c929eb5cccf7ce501e#%E3%82%AF%E3%83%A9%E3%82%B9%E3%81%AE%E4%B8%80%E9%83%A8%E3%81%A0%E3%81%91%E3%83%A2%E3%83%83%E3%82%AF%E3%81%AB%E3%81%97%E3%81%9F%E3%81%84
+     * */
+    jest
+      .spyOn(NameApiService.prototype, 'getFirstName')
+      .mockResolvedValue('Jack');
+    mockedNameApiService = new NameApiService();
+
+    /** NG CODE
+     * オブジェクト形式でコンストラクタのメソッドのモックを定義する方法
+     * オブジェクトの構成をコンストラクタのメンバと一致させる必要があるため、コンストラクタにprivateのメンバがある場合は型エラーを回避することができない。
+     * 例
+     * https://jestjs.io/ja/docs/es6-class-mocks#mockimplementation-%E3%81%BE%E3%81%9F%E3%81%AF-mockimplementationonce-%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%9F%E3%83%A2%E3%83%83%E3%82%AF%E3%82%92%E7%BD%AE%E3%81%8D%E6%8F%9B%E3%81%88%E3%82%8B
+     * https://qiita.com/yuma-ito-bd/items/38c929eb5cccf7ce501e#%E3%82%AF%E3%83%A9%E3%82%B9%E4%B8%B8%E3%81%94%E3%81%A8%E3%83%A2%E3%83%83%E3%82%AF%E3%81%AB%E3%81%97%E3%81%9F%E3%81%84
+     */
+    // mocked(NameApiService).mockImplementation(() => {
     //   return {
     //     getFirstName: () => {
     //       return Promise.resolve('Jack');
     //     },
+    //     MAX_LENGTH: 4 //本来privateでなければならないメンバのためこれが書いてあってもなくても型エラーになる
     //   };
     // });
-
-    /** OK CODE1 インスタンスメソッドにmockImplementationをする */
-    // mockedNameApiService = mocked(new NameApiService(), true);
-    // mocked(mockedNameApiService, true).getFirstName.mockImplementation(() =>
-    //   Promise.resolve('Jack')
-    // );
-
-    /** OK CODE2 上のコードと同じ */
-    mockedNameApiService = mocked(new NameApiService(), true);
-    mockedNameApiService.getFirstName.mockResolvedValue('Jack');
+    // mockedNameApiServce = new NameApiService();
   });
 
   test('[正常系]APIから取得した文字列の長さ<=第一引数の数値 の場合にAPIから取得した文字列を返す', async () => {
@@ -127,29 +135,29 @@ describe('getFirstNameThrowIfLong()　パターン１：コンストラクタ(ES
   });
 });
 
-describe('getFirstNameThrowIfLong()　パターン２：コンストラクタ(ES&クラス)のメソッドをモックする', () => {
-  let mockedNameApiService: NameApiService;
+describe('getFirstNameThrowIfLong()　パターン２：インスタンスのメソッドにモックを実装する', () => {
+  let mockedNameApiService: MockedObjectDeep<NameApiService>;
   beforeAll(() => {
+    /** OK CODE */
+    mockedNameApiService = mocked(new NameApiService(), true);
+    mockedNameApiService.getFirstName.mockResolvedValue('Jack');
+    // /* or */ mockedNameApiService.getFirstName.mockReturnValue(Promise.resolve('Jack'));
+    // /* or */ mockedNameApiService.getFirstName.mockImplementation(() =>
+    //            Promise.resolve('Jack')
+    //          );
+
     /** NG CODE
-     * returnするオブジェクトの構成をコンストラクタのメンバと一致させる必要があるため、
-     * privateのメンバがある場合は型エラーを回避できない。
+     * パターン１にあるようにコンストラクタ(ES6クラス)にはmockImplementationができたが、
+     * インスタンスにはmockImplementationすることはできない
      */
-    // mocked(NameApiService).mockImplementation(() => {
+    // mockedNameApiService = mocked(new NameApiService(), true);
+    // mocked(mockedNameApiService, true).mockImplementation(() => {
     //   return {
     //     getFirstName: () => {
     //       return Promise.resolve('Jack');
     //     },
     //   };
     // });
-    // mockedNameApiServce = new NameApiService();
-
-    /** OK CODE
-     *  jest.spyOnを使ってコンストラクタ(ES6クラス)の指定したメソッドをモック
-     * */
-    jest
-      .spyOn(NameApiService.prototype, 'getFirstName')
-      .mockResolvedValue('Jack');
-    mockedNameApiService = new NameApiService();
   });
 
   test('[正常系]APIから取得した文字列の長さ<=第一引数の数値 の場合にAPIから取得した文字列を返す', async () => {
