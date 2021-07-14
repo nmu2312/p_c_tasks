@@ -1,0 +1,828 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Board All Filled With Triangles 1`] = `
+Array [
+  .c1 {
+  background: #fff;
+  color: red;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0::after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+<div
+    className="c0"
+  >
+    <button
+      className="c1"
+      onClick={[Function]}
+      style={null}
+    >
+      △
+    </button>
+    <button
+      className="c1"
+      onClick={[Function]}
+      style={null}
+    >
+      △
+    </button>
+    <button
+      className="c1"
+      onClick={[Function]}
+      style={null}
+    >
+      △
+    </button>
+  </div>,
+  .c1 {
+  background: #fff;
+  color: red;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0::after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+<div
+    className="c0"
+  >
+    <button
+      className="c1"
+      onClick={[Function]}
+      style={null}
+    >
+      △
+    </button>
+    <button
+      className="c1"
+      onClick={[Function]}
+      style={null}
+    >
+      △
+    </button>
+    <button
+      className="c1"
+      onClick={[Function]}
+      style={null}
+    >
+      △
+    </button>
+  </div>,
+  .c1 {
+  background: #fff;
+  color: red;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0::after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+<div
+    className="c0"
+  >
+    <button
+      className="c1"
+      onClick={[Function]}
+      style={null}
+    >
+      △
+    </button>
+    <button
+      className="c1"
+      onClick={[Function]}
+      style={null}
+    >
+      △
+    </button>
+    <button
+      className="c1"
+      onClick={[Function]}
+      style={null}
+    >
+      △
+    </button>
+  </div>,
+]
+`;
+
+exports[`Storyshots Board Default 1`] = `
+Array [
+  .c1 {
+  background: #fff;
+  color: red;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0::after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+<div
+    className="c0"
+  >
+    <button
+      className="c1"
+      onClick={[Function]}
+      style={null}
+    />
+    <button
+      className="c1"
+      onClick={[Function]}
+      style={null}
+    />
+    <button
+      className="c1"
+      onClick={[Function]}
+      style={null}
+    />
+  </div>,
+  .c1 {
+  background: #fff;
+  color: red;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0::after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+<div
+    className="c0"
+  >
+    <button
+      className="c1"
+      onClick={[Function]}
+      style={null}
+    />
+    <button
+      className="c1"
+      onClick={[Function]}
+      style={null}
+    />
+    <button
+      className="c1"
+      onClick={[Function]}
+      style={null}
+    />
+  </div>,
+  .c1 {
+  background: #fff;
+  color: red;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.c1:focus {
+  outline: none;
+}
+
+.c0::after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+<div
+    className="c0"
+  >
+    <button
+      className="c1"
+      onClick={[Function]}
+      style={null}
+    />
+    <button
+      className="c1"
+      onClick={[Function]}
+      style={null}
+    />
+    <button
+      className="c1"
+      onClick={[Function]}
+      style={null}
+    />
+  </div>,
+]
+`;
+
+exports[`Storyshots Game Default 1`] = `
+.c2 {
+  background: #fff;
+  color: red;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c1::after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c3 {
+  margin-left: 30px;
+}
+
+.c4 {
+  margin-bottom: 10px;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className=""
+  >
+    <div
+      className="c1"
+    >
+      <button
+        className="c2"
+        onClick={[Function]}
+        style={null}
+      />
+      <button
+        className="c2"
+        onClick={[Function]}
+        style={null}
+      />
+      <button
+        className="c2"
+        onClick={[Function]}
+        style={null}
+      />
+    </div>
+    <div
+      className="c1"
+    >
+      <button
+        className="c2"
+        onClick={[Function]}
+        style={null}
+      />
+      <button
+        className="c2"
+        onClick={[Function]}
+        style={null}
+      />
+      <button
+        className="c2"
+        onClick={[Function]}
+        style={null}
+      />
+    </div>
+    <div
+      className="c1"
+    >
+      <button
+        className="c2"
+        onClick={[Function]}
+        style={null}
+      />
+      <button
+        className="c2"
+        onClick={[Function]}
+        style={null}
+      />
+      <button
+        className="c2"
+        onClick={[Function]}
+        style={null}
+      />
+    </div>
+  </div>
+  <div
+    className="c3"
+    data-test="game-info"
+  >
+    <div
+      className="c4"
+      data-test="status"
+    >
+      次のプレイヤー: X
+    </div>
+    <div>
+      <button
+        onClick={[Function]}
+      >
+        Change Order
+      </button>
+    </div>
+    <ol
+      data-test="history"
+    >
+      <li>
+        <button
+          onClick={[Function]}
+          style={
+            Object {
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Go to game start
+        </button>
+      </li>
+    </ol>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Game Draw 1`] = `
+.c2 {
+  background: #fff;
+  color: red;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c1::after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c3 {
+  margin-left: 30px;
+}
+
+.c4 {
+  margin-bottom: 10px;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className=""
+  >
+    <div
+      className="c1"
+    >
+      <button
+        className="c2"
+        onClick={[Function]}
+        style={null}
+      >
+        X
+      </button>
+      <button
+        className="c2"
+        onClick={[Function]}
+        style={null}
+      >
+        O
+      </button>
+      <button
+        className="c2"
+        onClick={[Function]}
+        style={null}
+      >
+        X
+      </button>
+    </div>
+    <div
+      className="c1"
+    >
+      <button
+        className="c2"
+        onClick={[Function]}
+        style={null}
+      >
+        X
+      </button>
+      <button
+        className="c2"
+        onClick={[Function]}
+        style={null}
+      >
+        X
+      </button>
+      <button
+        className="c2"
+        onClick={[Function]}
+        style={null}
+      >
+        O
+      </button>
+    </div>
+    <div
+      className="c1"
+    >
+      <button
+        className="c2"
+        onClick={[Function]}
+        style={null}
+      >
+        O
+      </button>
+      <button
+        className="c2"
+        onClick={[Function]}
+        style={null}
+      >
+        X
+      </button>
+      <button
+        className="c2"
+        onClick={[Function]}
+        style={null}
+      >
+        O
+      </button>
+    </div>
+  </div>
+  <div
+    className="c3"
+    data-test="game-info"
+  >
+    <div
+      className="c4"
+      data-test="status"
+    >
+      Draw!
+    </div>
+    <div>
+      <button
+        onClick={[Function]}
+      >
+        Change Order
+      </button>
+    </div>
+    <ol
+      data-test="history"
+    >
+      <li>
+        <button
+          onClick={[Function]}
+          style={null}
+        >
+          Go to game start
+        </button>
+      </li>
+      <li>
+        <button
+          onClick={[Function]}
+          style={null}
+        >
+          Go to move #1 (0, 0)
+        </button>
+      </li>
+      <li>
+        <button
+          onClick={[Function]}
+          style={null}
+        >
+          Go to move #2 (1, 0)
+        </button>
+      </li>
+      <li>
+        <button
+          onClick={[Function]}
+          style={null}
+        >
+          Go to move #3 (0, 1)
+        </button>
+      </li>
+      <li>
+        <button
+          onClick={[Function]}
+          style={null}
+        >
+          Go to move #4 (0, 2)
+        </button>
+      </li>
+      <li>
+        <button
+          onClick={[Function]}
+          style={null}
+        >
+          Go to move #5 (1, 1)
+        </button>
+      </li>
+      <li>
+        <button
+          onClick={[Function]}
+          style={null}
+        >
+          Go to move #6 (2, 1)
+        </button>
+      </li>
+      <li>
+        <button
+          onClick={[Function]}
+          style={null}
+        >
+          Go to move #7 (1, 2)
+        </button>
+      </li>
+      <li>
+        <button
+          onClick={[Function]}
+          style={null}
+        >
+          Go to move #8 (2, 2)
+        </button>
+      </li>
+      <li>
+        <button
+          onClick={[Function]}
+          style={
+            Object {
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Go to move #9 (2, 0)
+        </button>
+      </li>
+    </ol>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Square Default 1`] = `
+.c0 {
+  background: #fff;
+  color: red;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+<button
+  className="c0"
+  style={null}
+/>
+`;
+
+exports[`Storyshots Square Player 1 1`] = `
+.c0 {
+  background: #fff;
+  color: red;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+<button
+  className="c0"
+  style={null}
+>
+  X
+</button>
+`;
+
+exports[`Storyshots Square Player 1 Wins 1`] = `
+.c0 {
+  background: #fff;
+  color: red;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+<button
+  className="c0"
+  style={
+    Object {
+      "backgroundColor": "yellow",
+    }
+  }
+>
+  X
+</button>
+`;
+
+exports[`Storyshots Square Player 2 1`] = `
+.c0 {
+  background: #fff;
+  color: red;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+<button
+  className="c0"
+  style={null}
+>
+  O
+</button>
+`;
+
+exports[`Storyshots Square Third Player 1`] = `
+.c0 {
+  background: #fff;
+  color: red;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+<button
+  className="c0"
+  style={null}
+>
+  △
+</button>
+`;
