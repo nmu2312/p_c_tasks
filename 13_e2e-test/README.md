@@ -26,4 +26,7 @@ E22テストはmy-app/cypress/integration/my-app
 
 参考
 https://medium.com/@mateuszroth/why-the-test-pyramid-is-a-bullshit-guide-to-testing-towards-modern-frontend-and-backend-apps-4246e89b87bd  
+
+
+
 他
