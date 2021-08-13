@@ -48,7 +48,7 @@ SELECT EmployeeID, OrderID, MAX(OrderDate) as LastOrderDate FROM Orders GROUP BY
   - UPDATE Customers SET CustomerName=NULL WHERE CustomerID=1;
   - SELECT * FROM Customers WHERE CustomerName IS NOT NULL;
   - SELECT * FROM Customers WHERE CustomerName IS NULL;
-  - SQLではNULLは等号では判定できない。
+  - SQLの条件指定でNULLは=では判定できない。
 
 10. JOINの扱いに慣れる
   - DELETE FROM Employees WHERE EmployeeID=1;
