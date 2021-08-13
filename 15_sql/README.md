@@ -3,9 +3,9 @@
 ## 課題1
 1. 96年に3回以上注文しCustomerのidと、注文回数<br>
 SELECT CustomerID, COUNT(CustomerID) as OrderCount<br>
- FROM Orders WHERE strftime('%Y',Orders.OrderDate)='1996'<br>
- GROUP BY CustomerID HAVING OrderCount>=3<br>
- ORDER BY OrderCount DESC;
+  FROM Orders WHERE strftime('%Y',Orders.OrderDate)='1996'<br>
+  GROUP BY CustomerID HAVING OrderCount>=3<br>
+  ORDER BY OrderCount DESC;
 
 
 2. 過去、最も多くのOrderDetailが紐づいたOrder<br>
@@ -16,20 +16,20 @@ SELECT ShipperID, COUNT(ShipperID) as ShippingCount FROM Orders GROUP BY Shipper
 
 4. 売上が高い順番にCountryを並べる<br>
 SELECT ROUND(SUM(Price*Quantity)) as Sales, Customers.Country  
- FROM OrderDetails  
- LEFT JOIN Orders ON Orders.OrderID=OrderDetails.OrderID  
- LEFT JOIN Customers ON Orders.CustomerID=Customers.CustomerID  
- LEFT JOIN Products ON OrderDetails.ProductID=Products.ProductID  
- GROUP BY Customers.Country ORDER BY Sales DESC;  
+  FROM OrderDetails  
+  LEFT JOIN Orders ON Orders.OrderID=OrderDetails.OrderID  
+  LEFT JOIN Customers ON Orders.CustomerID=Customers.CustomerID  
+  LEFT JOIN Products ON OrderDetails.ProductID=Products.ProductID  
+  GROUP BY Customers.Country ORDER BY Sales DESC;  
 
 5. 国ごとの売上を年ごとに集計する<br>
 SELECT ROUND(SUM(Price*Quantity)) as Sales, strftime('%Y',Orders.OrderDate) as OrderYear, Customers.Country<br>
- FROM OrderDetails<br>
- LEFT JOIN Orders ON Orders.OrderID=OrderDetails.OrderID<br>
- LEFT JOIN Customers ON Orders.CustomerID=Customers.CustomerID<br>
- LEFT JOIN Products ON OrderDetails.ProductID=Products.ProductID<br>
- GROUP BY Country, OrderYear<br>
- ORDER BY Country, OrderYear;
+  FROM OrderDetails<br>
+  LEFT JOIN Orders ON Orders.OrderID=OrderDetails.OrderID<br>
+  LEFT JOIN Customers ON Orders.CustomerID=Customers.CustomerID<br>
+  LEFT JOIN Products ON OrderDetails.ProductID=Products.ProductID<br>
+  GROUP BY Country, OrderYear<br>
+  ORDER BY Country, OrderYear;
 
 6. Employeeテーブルに「Junior（若手）」カラム（boolean）を追加
   - ALTER TABLE Employees ADD Junior TINYINT NOT NULL DEFAULT 0;  
