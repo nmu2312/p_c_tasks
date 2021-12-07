@@ -65,3 +65,5 @@ create index salary_index on salaries(salary);
 - JOIN ON - 結果を絞るのではなく、結合前のテーブルのレコードを絞る。そのためLEFT OUTER JOINのときは、ONとWHREで出力結果が変わる
 
 
+# 課題5
+スロークエリログの出力先を変更するにはどうすればよいでしょうか。
