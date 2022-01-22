@@ -15,19 +15,19 @@ NULL OR TRUE
 ## 2 テーブル設計
 ### 設計
 
-TABLE assignee {
-  id: varchar NOT NULL
+TABLE assignee {  
+  id: varchar NOT NULL  
 }
 
-TABLE Issue {
-  id: varchar NOT NULL
-  text: varchar NOT NULL
+TABLE Issue {  
+  id: varchar NOT NULL  
+  text: varchar NOT NULL  
 }
 
-TABLE issue_assignee_rel {
-  id: varchar NOT NULL
-  issue_id: varchar NOT NULL
-  assignee_id: varchar NOT NULL
+TABLE issue_assignee_rel {  
+  id: varchar NOT NULL  
+  issue_id: varchar NOT NULL  
+  assignee_id: varchar NOT NULL  
 }
 
 ### DDL
