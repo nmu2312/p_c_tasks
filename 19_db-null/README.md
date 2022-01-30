@@ -48,6 +48,8 @@ ALTER TABLE assignee MODIFY COLUMN id varchar(100) NOT NULL PRIMARY KEY;
 ALTER TABLE issue_assignee ADD FOREIGN KEY (issue_id) REFERENCES issue (id);
 
 ALTER TABLE issue_assignee ADD FOREIGN KEY (assignee_id) REFERENCES assignee (id);
+
+ALTER TABLE issue_assignee PRIMARY KEY (issue_id, assignee_id);
 ```
 
 ## 3 クイズ
